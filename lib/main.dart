@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          FirstPage(pageController: pageController,),
+          FirstPage(pageController: pageController),
           SecondPage(pageController: pageController),
           ThirdPage(pageController: pageController),
           FourPage(pageController: pageController),
@@ -25,12 +25,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class FirstPage extends StatelessWidget {
+class FirstPage extends StatefulWidget {
   final PageController pageController;
+
   const FirstPage({Key? key, required this.pageController}) : super(key: key);
 
   @override
+  _FirstPageState createState() => _FirstPageState();
+}
+
+class _FirstPageState extends State<FirstPage>
+    with AutomaticKeepAliveClientMixin<FirstPage> {
+  get pageController => pageController;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Colors.lightGreen,
       body: Container(
@@ -38,9 +48,23 @@ class FirstPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('First Page',style: TextStyle(fontSize: 25),),
+              Text(
+                'First Page',
+                style: TextStyle(fontSize: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'Enter Name',
+                      hintText: 'Enter Your Name'),
+                ),
+              ),
               ElevatedButton(
-                  onPressed: ()=> pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease),
+                  onPressed: () => widget.pageController.nextPage(
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.ease),
                   child: Text('Jump to Next Page'))
             ],
           ),
@@ -48,14 +72,28 @@ class FirstPage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
 
-class SecondPage extends StatelessWidget {
+class SecondPage extends StatefulWidget {
   final PageController pageController;
+
   const SecondPage({Key? key, required this.pageController}) : super(key: key);
 
   @override
+  _SecondPageState createState() => _SecondPageState();
+}
+
+class _SecondPageState extends State<SecondPage>
+    with AutomaticKeepAliveClientMixin<SecondPage> {
+  get pageController => pageController;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Colors.brown,
       body: Container(
@@ -63,9 +101,20 @@ class SecondPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Second Page',style: TextStyle(fontSize: 25),),
+              Text('Second Page', style: TextStyle(fontSize: 25)),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'Enter Name',
+                      hintText: 'Enter Your Name'),
+                ),
+              ),
               ElevatedButton(
-                  onPressed: ()=> pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease),
+                  onPressed: () => widget.pageController.nextPage(
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.ease),
                   child: Text('Jump to Next Page'))
             ],
           ),
@@ -73,14 +122,28 @@ class SecondPage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
   final PageController pageController;
+
   const ThirdPage({Key? key, required this.pageController}) : super(key: key);
 
   @override
+  _ThirdPageState createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage>
+    with AutomaticKeepAliveClientMixin<ThirdPage> {
+  get pageController => pageController;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Colors.teal,
       body: Container(
@@ -88,9 +151,23 @@ class ThirdPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Third Page',style: TextStyle(fontSize: 25),),
+              Text(
+                'Third Page',
+                style: TextStyle(fontSize: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'Enter Name',
+                      hintText: 'Enter Your Name'),
+                ),
+              ),
               ElevatedButton(
-                  onPressed: ()=> pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease),
+                  onPressed: () => widget.pageController.nextPage(
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.ease),
                   child: Text('Jump to Next Page'))
             ],
           ),
@@ -98,14 +175,28 @@ class ThirdPage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
 
-class FourPage extends StatelessWidget {
+class FourPage extends StatefulWidget {
   final PageController pageController;
+
   const FourPage({Key? key, required this.pageController}) : super(key: key);
 
   @override
+  _FourPageState createState() => _FourPageState();
+}
+
+class _FourPageState extends State<FourPage>
+    with AutomaticKeepAliveClientMixin<FourPage> {
+  get pageController => pageController;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Colors.grey,
       body: Container(
@@ -113,10 +204,21 @@ class FourPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Fourth Page',style: TextStyle(fontSize: 25),),
+              Text(
+                'Fourth Page',
+                style: TextStyle(fontSize: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      labelText: 'Enter Name',
+                      hintText: 'Enter Your Name'),
+                ),
+              ),
               ElevatedButton(
-                // onPressed: ()=> pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease),
-                  onPressed: () => pageController.jumpToPage(0),
+                  onPressed: () => widget.pageController.jumpToPage(0),
                   child: Text('Back to Main Page (Finish)'))
             ],
           ),
@@ -124,4 +226,8 @@ class FourPage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
