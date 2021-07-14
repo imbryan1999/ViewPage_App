@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           FirstPage(pageController: pageController),
           SecondPage(pageController: pageController),
           ThirdPage(pageController: pageController),
-          FourPage(pageController: pageController),
+          FourthPage(pageController: pageController),
         ],
       ),
     );
@@ -181,17 +181,17 @@ class _ThirdPageState extends State<ThirdPage>
   bool get wantKeepAlive => true;
 }
 
-class FourPage extends StatefulWidget {
+class FourthPage extends StatefulWidget {
   final PageController pageController;
 
-  const FourPage({Key? key, required this.pageController}) : super(key: key);
+  const FourthPage({Key? key, required this.pageController}) : super(key: key);
 
   @override
-  _FourPageState createState() => _FourPageState();
+  _FourthPageState createState() => _FourthPageState();
 }
 
-class _FourPageState extends State<FourPage>
-    with AutomaticKeepAliveClientMixin<FourPage> {
+class _FourthPageState extends State<FourthPage>
+    with AutomaticKeepAliveClientMixin<FourthPage> {
   get pageController => pageController;
 
   @override
